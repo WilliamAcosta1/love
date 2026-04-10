@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Universo Eres Tú</title>
+<title>Te amo Massiel</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -26,6 +26,38 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 .page{position:relative;z-index:2;display:none;}
 .page.active{display:flex;}
 
+/* ===== BOTONES ELEGANTES (PC Y MÓVIL) ===== */
+.btn-glass {
+  background: rgba(180, 140, 220, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(180, 150, 200, 0.25);
+  color: #c8b8e0;
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-glass:hover {
+  background: rgba(180, 140, 220, 0.15);
+  color: #eeddf8;
+  border-color: rgba(180, 140, 220, 0.5);
+  box-shadow: 0 0 20px rgba(180, 130, 200, 0.2);
+  transform: translateY(-2px);
+}
+.btn-glass:active {
+  transform: translateY(0);
+  background: rgba(180, 140, 220, 0.1);
+}
+
 /* ===== INTRO ===== */
 #intro{min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;}
 .isub{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#c4a882;opacity:0;animation:fu 1.2s ease forwards .5s;}
@@ -37,9 +69,37 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 
 /* ===== CONSTELLATION ===== */
 #constellation{min-height:100dvh;flex-direction:column;align-items:center;padding:clamp(1.5rem,4vw,4rem) 1rem;}
-.top-bar{width:100%;max-width:860px;display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(1rem,3vw,3rem);}
-.back-btn{background:transparent;border:1px solid rgba(180,150,200,.3);color:#a090b0;font-family:'Crimson Pro',serif;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:all .3s;}
-.back-btn:hover{background:rgba(180,140,220,.1);color:#d4c0e8;border-color:rgba(180,140,220,.6);}
+
+.top-bar {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: clamp(1rem, 4vw, 3rem);
+}
+.top-bar .btn-glass {
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .top-bar {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .top-bar .btn-glass {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-bottom: 0;
+  }
+  .top-bar .btn-glass:hover {
+    transform: translateY(calc(-50% - 2px));
+  }
+}
+
 .sec-head{text-align:center;}
 .sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.5rem);font-style:italic;color:#f0e0c8;margin-bottom:.5rem;}
 .sec-head p{font-size:1rem;color:#887060;font-style:italic;}
@@ -64,16 +124,13 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 
 /* ===== CARTA ===== */
 #love-letter{min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem;max-width:680px;margin:0 auto;}
-.letter-back{align-self:flex-start;background:transparent;border:1px solid rgba(180,150,200,.3);color:#a090b0;font-family:'Crimson Pro',serif;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:all .3s;margin-bottom:2.5rem;}
-.letter-back:hover{background:rgba(180,140,220,.1);color:#d4c0e8;border-color:rgba(180,140,220,.6);}
+.letter-back { align-self: flex-start; margin-bottom: 3rem; }
 .letter-wrap{width:100%;text-align:center;}
 .lorn{font-size:2rem;opacity:.4;margin-bottom:2rem;display:block;}
 .lbody{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-style:italic;line-height:2;color:#c0aaaa;margin-bottom:3rem;}
 .lbody em{color:#e8d0d0;font-style:normal;}
-.lsig{font-size:.85rem;letter-spacing:3px;text-transform:uppercase;color:#7a6858;margin-bottom:2.5rem;display:block;}
-.nav-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
-.nl-btn{background:transparent;border:1px solid rgba(180,140,220,.3);color:#a090b0;font-family:'Crimson Pro',serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:10px 28px;cursor:pointer;transition:all .3s;}
-.nl-btn:hover{background:rgba(180,140,220,.1);color:#d4c0e8;border-color:rgba(180,140,220,.6);}
+.lsig{font-size:.85rem;letter-spacing:3px;text-transform:uppercase;color:#7a6858;margin-bottom:3rem;display:block;}
+.nav-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 
 /* footer */
 #footer-s{flex-direction:column;align-items:center;padding:4rem 2rem 3rem;text-align:center;}
@@ -90,8 +147,6 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 .mtitle{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,1.9rem);font-style:italic;color:#f5ead8;margin-bottom:1.5rem;line-height:1.3;}
 .mdiv{width:40px;height:1px;margin:0 auto 1.5rem;background:linear-gradient(to right,transparent,var(--mc,#c4a8e0),transparent);}
 .mmsg{font-size:clamp(1rem,2.5vw,1.15rem);line-height:1.85;color:#c0b09a;font-style:italic;margin-bottom:2rem;}
-.mclose{background:transparent;border:1px solid rgba(180,140,220,.3);color:#a090b0;font-family:'Crimson Pro',serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:10px 28px;cursor:pointer;transition:all .3s;}
-.mclose:hover{background:rgba(180,140,220,.1);color:#d4c0e8;border-color:rgba(180,140,220,.6);}
 
 /* Estrellas fugaces */
 .ss{position:fixed;width:2px;height:2px;background:white;border-radius:50%;pointer-events:none;z-index:3;}
@@ -112,12 +167,11 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 
 <div class="page" id="constellation">
   <div class="top-bar">
-    <button class="back-btn" onclick="go('constellation','intro')">← Volver</button>
+    <button class="btn-glass" onclick="go('constellation','intro')"><span>←</span> Volver</button>
     <div class="sec-head">
       <h2>Nuestra Constelación</h2>
       <p>Toca cada planeta para descubrir lo que siento</p>
     </div>
-    <div style="width:80px;"></div>
   </div>
 
   <div id="sky-wrap">
@@ -170,7 +224,7 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
 </div>
 
 <div class="page" id="love-letter">
-  <button class="letter-back" onclick="go('love-letter','constellation')">← Volver a los planetas</button>
+  <button class="btn-glass letter-back" onclick="go('love-letter','constellation')"><span>←</span> Volver a los planetas</button>
   <div class="letter-wrap">
     <span class="lorn">✦ ✦ ✦</span>
     <p class="lbody">
@@ -185,8 +239,8 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
     </p>
     <span class="lsig">— Con todo mi amor, para siempre —</span>
     <div class="nav-row">
-      <button class="nl-btn" onclick="go('love-letter','constellation')">← Los planetas</button>
-      <button class="nl-btn" onclick="go('love-letter','intro')">✦ Inicio</button>
+      <button class="btn-glass" onclick="go('love-letter','constellation')"><span>←</span> Los planetas</button>
+      <button class="btn-glass" onclick="go('love-letter','intro')">✦ Inicio</button>
     </div>
   </div>
 </div>
@@ -200,7 +254,7 @@ body{background:#020814;color:#e8dfc8;font-family:'Crimson Pro',serif;overflow-x
     <h2 class="mtitle" id="mt"></h2>
     <div class="mdiv" id="md"></div>
     <p class="mmsg" id="mm"></p>
-    <button class="mclose" onclick="closeM()">Cerrar ✦</button>
+    <button class="btn-glass" onclick="closeM()">Cerrar ✦</button>
   </div>
 </div>
 
@@ -242,7 +296,7 @@ function openM(i){
 }
 
 function closeM(e){
-  if(!e||e.target===document.getElementById('mw')||e.currentTarget.classList.contains('mclose')){
+  if(!e||e.target===document.getElementById('mw')||e.currentTarget.classList.contains('btn-glass')){
     document.getElementById('mw').style.display='none';
     document.body.style.overflow='';
   }
